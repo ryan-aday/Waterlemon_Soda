@@ -1,6 +1,7 @@
 {% extends "shell.html" %}
+
 {% block head %}
-<title> Login </title>
+<title> Register </title>
 {% endblock %}
 
 {% block content %}
@@ -11,15 +12,14 @@
 
     {% endfor %}
 
-    <form action="/auth" method="POST">
+    <form action="/register" method="POST">
 
       Username:  <input type="text" name="user">
       <br>
       Password:  <input type="password" name="password">
       <br>
-      <input type="submit" value="Login">
+      Confirm Password:  <input type="password" name="password">
       <br>
-      <br>
-      No account? Register <a href="/register"> here </a>
+      <input type="submit" value="Register">
 
 {% endblock %}
