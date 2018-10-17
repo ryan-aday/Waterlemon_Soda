@@ -53,3 +53,8 @@ Filled shell with html skeleton that will be inherited to all other html files
 Filled app with flask skeleton
 Completed register.html
 ==============================================================
+
+joyceL -- 2018-10-17 14:05
+--------------------------------------------------------------
+added add.html (template for adding new story)
+==============================================================
