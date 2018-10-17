@@ -1,0 +1,22 @@
+{% extends "shell.html" %}
+{% block head %}
+<title> Login </title>
+{% endblock %}
+
+{% block content %}
+
+    {% set msgs = get_flashed_messages() %}
+    {% for each in msgs %}
+      {{each}}
+
+    {% endfor %}
+
+    <form action="/auth" method="POST">
+
+      Username:  <input type="text" name="user">
+      <br>
+      Password:  <input type="password" name="password">
+      <br>
+      <input type="submit" value="Submit">
+
+{% endblock %}
