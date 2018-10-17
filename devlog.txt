@@ -1,12 +1,34 @@
-team waterlemon soda 
+Waterlemon Soda
+Johnson Li
+Kenny Li
+Kendrick Liang
+Joyce Liao
+---------------------
+The Art of Storytelling
+
+______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 
 joyceL -- 2018-10-15 20:35
+--------------------------------------------------------------
 created project repo and devlog
+==============================================================
 
 joyceL -- 2018-10-15 23:00
+--------------------------------------------------------------
 added design.pdf v0 to repo
+==============================================================
 
 joyceL -- 2018-10-16 20:01
+--------------------------------------------------------------
 updated design.pdf (now v1) as per the feedback from peer review
 	1. added register / logout into core functionality
 	2. briefly explained logout feature and added its route to description of app.py
@@ -14,9 +36,14 @@ updated design.pdf (now v1) as per the feedback from peer review
 	4. updated sitemap to show a successful registration leads to login screen and logout button
 	5. added "script for logout" in list of tasks
 	6. removed "Make it pretty" from stretch goals since CSS is not allowed in this project
+==============================================================
 
 joyceL -- 2018-10-16 21:52
+--------------------------------------------------------------
 protocols to follow because programming sucks:
 	1. every member of the team has to understand and agree with every part of our design
 	2. develop incrementally rather than trying to fix everything at the end
+
+==============================================================
+
 
