@@ -17,7 +17,16 @@ def login():
 def register():
     return render_template("register.html")
 
-# @app.route("/home")
+@app.route("/auth")
+def authenticate():
+    if username == request.args["user"] and password == request.args["password"]:
+        return redirect(url_for("home"))
+    else:
+        flash("username or password is incorrect")
+        return redirect(url_for("login"))
+
+@app.route("/home")
+def home():
 
 # @app.route("/b")
 # def b():
