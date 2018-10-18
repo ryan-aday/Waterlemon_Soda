@@ -2,7 +2,7 @@
 
 from flask import Flask, request, render_template, \
                   flash, session, url_for, redirect
-import sqlite3, os
+import story, os
 
 app = Flask(__name__)
 
