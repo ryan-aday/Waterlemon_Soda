@@ -2,3 +2,12 @@
 
 {% block title %} new story {% endblock %}
 
+{& block content %}
+<form action="/newstory">
+Title: <input type="text" name="story_title">
+<br>
+Content: <input type="text" name="story_content">
+<br>
+<a href="/home">cancel</a> <input type="submit" value="post">
+{% endblock %}
+
