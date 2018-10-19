@@ -33,6 +33,10 @@ def authenticate():
 def home():
     return render_template("home.html")
 
+@app.route("/add")
+def new_story():
+    return render_template("add.html")
+
 @app.route("/logout")
 def logout():
     session.pop("admin")
