@@ -41,6 +41,10 @@ def new_story():
 def view_story():
     return render_template("view.html")
 
+@app.route("/edit")
+def edit_story():
+    return render_template("edit.html")
+
 @app.route("/logout")
 def logout():
     session.pop("admin")
