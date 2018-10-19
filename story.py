@@ -14,14 +14,14 @@ c = db.cursor()               #facilitate db ops
 
 #build SQL stmt, save as string
 def createTable():
-command = "CREATE TABLE users (username TEXT, password TEXT)"
-c.execute(command)
+    command = "CREATE TABLE users (username TEXT, password TEXT)"
+    c.execute(command)
 
-command = "CREATE TABLE stories (id INTEGER, story name TEXT)"
-c.execute(command)
+    command = "CREATE TABLE stories (id INTEGER, story name TEXT)"
+    c.execute(command)
 
-command = "CREATE TABLE placeholder (entry INTEGER, content TEXT, users TEXT, timestamp TEXT)"
-c.execute(command)
+    command = "CREATE TABLE placeholder (entry INTEGER, content TEXT, users TEXT, timestamp TEXT)"
+    c.execute(command)
 #==========================================================
 createTable()
 db.commit() #save changes
