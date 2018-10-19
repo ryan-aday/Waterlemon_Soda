@@ -1,4 +1,4 @@
-import sqlite3 
+import sqlite3
 DB_FILE="story.db"
 
 db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
@@ -9,10 +9,11 @@ c = db.cursor()               #facilitate db ops
        # c.execute(command) #run command
 
 #========================================================
-                 
+
 
 
 #build SQL stmt, save as string
+def createTable():
 command = "CREATE TABLE users (username TEXT, password TEXT)"
 c.execute(command)
 
@@ -22,6 +23,6 @@ c.execute(command)
 command = "CREATE TABLE placeholder (entry INTEGER, content TEXT, users TEXT, timestamp TEXT)"
 c.execute(command)
 #==========================================================
-
+createTable()
 db.commit() #save changes
 db.close()  #close database

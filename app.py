@@ -37,6 +37,7 @@ def home():
 def logout():
     session.pop("admin")
     return redirect(url_for("login"))
+
 # @app.route("/b")
 # def b():
 #     return
