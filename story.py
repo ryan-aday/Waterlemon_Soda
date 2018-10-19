@@ -23,6 +23,5 @@ def createTable():
     command = "CREATE TABLE placeholder (entry INTEGER, content TEXT, users TEXT, timestamp TEXT)"
     c.execute(command)
 #==========================================================
-createTable()
 db.commit() #save changes
 db.close()  #close database
