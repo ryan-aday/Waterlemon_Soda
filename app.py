@@ -37,6 +37,10 @@ def home():
 def new_story():
     return render_template("add.html")
 
+@app.route("/view")
+def view_story():
+    return render_template("view.html")
+
 @app.route("/logout")
 def logout():
     session.pop("admin")
