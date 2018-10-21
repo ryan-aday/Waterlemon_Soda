@@ -24,6 +24,10 @@ def register():
 
 @app.route("/adduser")
 def add_user():
+    if(story.check_user(request.args["user"])):
+        flash("User already exists")
+        return redirect(url_for("register"))
+
     if(request.args["password"] != request.args["confirm_password"]):
         flash("Passwords don't match")
         return redirect(url_for("register"))
