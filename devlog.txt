@@ -69,3 +69,8 @@ kendrickL -- 2018-10-18 14:07
 made py file to build story.db and its 3 tables
 ==============================================================
 
+johnsonL -- 2018-10-21 16:55
+--------------------------------------------------------------
+created util directory, and added add_user function in app.py and story.py
+==============================================================
+

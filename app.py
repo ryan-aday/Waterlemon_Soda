@@ -2,7 +2,8 @@
 
 from flask import Flask, request, render_template, \
                   flash, session, url_for, redirect
-import story, os
+from util import story                 
+import os
 
 app = Flask(__name__)
 
@@ -19,6 +20,12 @@ def login():
 @app.route("/register")
 def register():
     return render_template("register.html")
+
+@app.route("/adduser")
+def add_user():
+    story.add_user(request.args["user"], request.args["password"])
+    session[username] = username
+    return redirect(url_for("home"))
 
 @app.route("/auth")
 def authenticate():
@@ -49,13 +56,6 @@ def edit_story():
 def logout():
     session.pop("admin")
     return redirect(url_for("login"))
-# @app.route("/b")
-# def b():
-#     return
-#
-# @app.route("/c")
-# def c():
-#     return
 
 app.debug = True;
 app.run()

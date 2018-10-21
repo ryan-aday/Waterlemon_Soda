@@ -1,9 +1,6 @@
 import sqlite3
 DB_FILE="story.db"
 
-db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-c = db.cursor()               #facilitate db ops
-
 #fill given table with values
        # command = "INSERT INTO %s Values (\'%s\',%s,%s)" % (tablename, row[0], row[1], row[2])
        # c.execute(command) #run command
@@ -22,6 +19,14 @@ def createTable():
 
     command = "CREATE TABLE placeholder (entry INTEGER, content TEXT, users TEXT, timestamp TEXT)"
     c.execute(command)
+
+    db.commit() #save changes
+    db.close()  #close database
 #==========================================================
-db.commit() #save changes
-db.close()  #close database
+
+def add_user(username, password):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("INSERT INTO users VALUES(?, ?)", (username, password))
+    db.commit() #save changes
+    db.close()  #close database
