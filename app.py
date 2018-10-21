@@ -9,11 +9,12 @@ app = Flask(__name__)
 
 username = "admin"
 password = "password"
+
 app.secret_key = os.urandom(32)
 
 @app.route("/")
 def login():
-    if username in session:
+    if "logged_in" in session:
         return redirect(url_for("home"))
     return render_template("login.html");
 
@@ -23,14 +24,19 @@ def register():
 
 @app.route("/adduser")
 def add_user():
+    if(request.args["password"] != request.args["confirm_password"]):
+        flash("Passwords don't match")
+        return redirect(url_for("register"))
+
     story.add_user(request.args["user"], request.args["password"])
-    session[username] = username
+    session["logged_in"] = request.args["user"]
     return redirect(url_for("home"))
 
 @app.route("/auth")
 def authenticate():
-    if username == request.args["user"] and password == request.args["password"]:
-        session[username] = username;
+    # if username = request.args["user"] and password = request.args["password"]:
+    if story.auth_user(request.args["user"], request.args["password"]):
+        session["logged_in"] = request.args["user"]
         return redirect(url_for("home"))
     else:
         flash("username or password is incorrect")
@@ -38,7 +44,7 @@ def authenticate():
 
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", user=session["logged_in"])
 
 @app.route("/add")
 def new_story():
@@ -54,7 +60,7 @@ def edit_story():
 
 @app.route("/logout")
 def logout():
-    session.pop("admin")
+    session.pop("logged_in")
     return redirect(url_for("login"))
 
 app.debug = True;

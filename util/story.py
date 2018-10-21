@@ -30,3 +30,15 @@ def add_user(username, password):
     c.execute("INSERT INTO users VALUES(?, ?)", (username, password))
     db.commit() #save changes
     db.close()  #close database
+
+def auth_user(username, password):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    # user_info = c.execute("SELECT users.username, users.password FROM users WHERE username={} AND password={}".format(username, password))
+    for entry in c.execute("SELECT users.username, users.password FROM users"):
+        if(entry[0] == username and entry[1] == password):
+            return True;
+    return False
+
+    db.close()

@@ -74,3 +74,15 @@ johnsonL -- 2018-10-21 16:55
 created util directory, and added add_user function in app.py and story.py
 ==============================================================
 
+johnsonL -- 2018-10-21 17:13
+--------------------------------------------------------------
+made logout work for all users, not just admin 
+made register check confirm password
+==============================================================
+
+johnsonL -- 2018-10-21 17:53
+--------------------------------------------------------------
+added database authentication
+==============================================================
+
+
