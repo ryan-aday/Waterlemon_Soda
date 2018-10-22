@@ -6,21 +6,46 @@
 
 {% block content %}
     HI, logged in as {{user}}
+    <form action="/logout">
+        <input type="submit" value="Logout">
+    </form>
+
     <br>
     <br>
+
     <form action="/add">
         <input type="submit" value="Add new story">
     </form>
     <br>
-    <form action="/view">
+
+    <table>
+        <tr>
+            <th> Story Title </th>
+            <th> Action </th>
+        </tr>
+
+        {% for story in stories %}
+            <tr>
+                <td>{{story[0]}}</td>
+                {% if story[1] %}
+                <form action="/view">
+                    <input type="submit" value="View Story">
+                </form>
+                {% endif %}
+                <form action="/edit">
+                    <input type="submit" value="Add to Story">
+                </form>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <!-- <form action="/view">
         <input type="submit" value="View story">
     </form>
     <br>
     <form action="/edit">
         <input type="submit" value="Edit story">
-    </form>
+    </form> -->
     <br>
-    <form action="/logout">
-        <input type="submit" value="Logout">
-    </form>
+
 {% endblock %}
