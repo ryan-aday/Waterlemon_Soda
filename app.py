@@ -45,7 +45,7 @@ def authenticate():
 
 @app.route("/home")
 def home():
-    return render_template("home.html", user=session["logged_in"])
+    return render_template("home.html", user=session["logged_in"], stories = story.get_stories())
 
 @app.route("/add")
 def new_story():

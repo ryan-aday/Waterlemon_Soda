@@ -23,6 +23,7 @@ def createTable():
     c.execute(command)
 
     c.execute("INSERT INTO stories VALUES(?,?)", (0, "placeholder"))
+    c.execute("INSERT INTO placeholder VALUES(?,?,?)", (0, "hi", "admin", "1:00"))
     db.commit() #save changes
     db.close()  #close database
 #==========================================================
@@ -63,6 +64,7 @@ def get_stories():
 
     list = []
     for entry in c.execute("SELECT story_name FROM STORIES"):
-        list.append(entry[0])
+        #for user in c.execute("SELECT user FROM entry")
+        list.append(entry)
     return list
     db.close()
