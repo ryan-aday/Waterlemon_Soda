@@ -69,6 +69,11 @@ kendrickL -- 2018-10-18 14:07
 made py file to build story.db and its 3 tables
 ==============================================================
 
+joyceL -- 2018-10-19 13:50
+--------------------------------------------------------------
+added placeholder templates for contributing to an article and viewing an article
+==============================================================
+
 johnsonL -- 2018-10-21 16:55
 --------------------------------------------------------------
 created util directory, and added add_user function in app.py and story.py
