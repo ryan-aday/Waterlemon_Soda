@@ -11,15 +11,18 @@ DB_FILE="story.db"
 
 #build SQL stmt, save as string
 def createTable():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
     command = "CREATE TABLE users (username TEXT, password TEXT)"
     c.execute(command)
 
-    command = "CREATE TABLE stories (id INTEGER, story name TEXT)"
+    command = "CREATE TABLE stories (id INTEGER, story_name TEXT)"
     c.execute(command)
 
     command = "CREATE TABLE placeholder (entry INTEGER, content TEXT, users TEXT, timestamp TEXT)"
     c.execute(command)
 
+    c.execute("INSERT INTO stories VALUES(?,?)", (0, "placeholder"))
     db.commit() #save changes
     db.close()  #close database
 #==========================================================
@@ -50,6 +53,16 @@ def check_user(username):
     for entry in c.execute("SELECT users.username FROM users"):
         if(entry[0] == username):
             return True
-    return False;
-    
+    return False
+
+    db.close()
+
+def get_stories():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    list = []
+    for entry in c.execute("SELECT story_name FROM STORIES"):
+        list.append(entry[0])
+    return list
     db.close()

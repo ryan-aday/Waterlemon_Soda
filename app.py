@@ -2,13 +2,10 @@
 
 from flask import Flask, request, render_template, \
                   flash, session, url_for, redirect
-from util import story                 
+from util import story
 import os
 
 app = Flask(__name__)
-
-username = "admin"
-password = "password"
 
 app.secret_key = os.urandom(32)
 
@@ -67,9 +64,9 @@ def logout():
     session.pop("logged_in")
     return redirect(url_for("login"))
 
-app.debug = True;
+app.debug = True
 app.run()
 
 if __name__ == "__main__":
-    app.debug = True;
+    app.debug = True
     app.run()
