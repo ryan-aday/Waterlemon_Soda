@@ -18,7 +18,7 @@
     </form>
     <br>
 
-    <table>
+    <table border = "1">
         <tr>
             <th> Story Title </th>
             <th> Action </th>
@@ -28,13 +28,18 @@
             <tr>
                 <td>{{story}}</td>
                 {% if stories[story] %}
+                <td>
                 <form action="/view">
                     <input type="submit" value="View Story">
                 </form>
-                {% endif %}
+                </td>
+                {% else %}
+                <td>
                 <form action="/edit">
                     <input type="submit" value="Add to Story">
                 </form>
+                </td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>

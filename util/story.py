@@ -73,20 +73,23 @@ def get_stories(username):
     c = db.cursor()
 
     retDict = {}
-    storyList = c.execute("SELECT id FROM stories").fetchall()
+    storyList = c.execute("SELECT id, story_name FROM stories").fetchall()
+    print (storyList)
     for id in storyList:
         userList = c.execute("SELECT users FROM s" + str(id[0])).fetchall()
         for users in userList:
             if username in users:
-                retDict[id[0]] = True
+                retDict[id[1]] = True
             else:
-                retDict[id[0]] = False
+                retDict[id[1]] = False
     db.close()        
     return retDict
 
-# createTable()
-# add_story("0","foist","admin")
-# add_story("1","secondo","admin")
-# add_story("2","thirst","admin")
-# print(get_stories("admin"))
-# print(get_stories("stuff"))
+def test():
+    createTable()
+    add_story("story_name1","foist","admin")
+    add_story("story_name2","secondo","admin")
+    add_story("story_name3","thirst","admin")
+    add_user("admin","password")
+    print(get_stories("admin"))
+    print(get_stories("stuff"))
