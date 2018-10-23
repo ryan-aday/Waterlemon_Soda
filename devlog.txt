@@ -104,3 +104,10 @@ joyceL -- 2018-10-22 21:42
 --------------------------------------------------------------
 fixed formatting of launch instructions in readme.md
 ==============================================================
+
+johnsonL & kennyL -- 2018-10-22 23:30
+--------------------------------------------------------------
+Added add_story() function, get_stories() function. Fixed jinja syntax for homepage.
+Homepage now shows all stories with button to view/add to it.
+==============================================================
+
