@@ -39,7 +39,7 @@ def auth_user(username, password):
         if(entry[0] == username and entry[1] == password):
             db.close()
             return True
-    db.close()            
+    db.close()
     return False
 
 def check_user(username):
@@ -48,18 +48,18 @@ def check_user(username):
 
     for entry in c.execute("SELECT users.username FROM users"):
         if(entry[0] == username):
-            db.close()    
+            db.close()
             return True
-    db.close()            
+    db.close()
     return False
 
 def add_story(story_name, content, user):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    id = 0 
+    id = 0
     idList = c.execute("SELECT id FROM stories").fetchall()
     if not idList:
-        c.execute("INSERT INTO stories VALUES(?,?)", (0, story_name))       
+        c.execute("INSERT INTO stories VALUES(?,?)", (0, story_name))
     else:
         id = len(idList)
         c.execute("INSERT INTO stories VALUES(?,?)", (id, story_name))
@@ -72,7 +72,7 @@ def get_stories(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    retDict = {}
+    retDict = dict()
     storyList = c.execute("SELECT id, story_name FROM stories").fetchall()
     print (storyList)
     for id in storyList:
@@ -82,7 +82,7 @@ def get_stories(username):
                 retDict[id[1]] = True
             else:
                 retDict[id[1]] = False
-    db.close()        
+    db.close()
     return retDict
 
 def test():

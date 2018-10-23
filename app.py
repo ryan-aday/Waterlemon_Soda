@@ -64,6 +64,11 @@ def logout():
     session.pop("logged_in")
     return redirect(url_for("login"))
 
+@app.route("/newstory")
+def newstory():
+    story.add_story(request.args["story_title"], request.args["story_content"], session["logged_in"])
+    return redirect(url_for("home"))
+
 app.debug = True
 app.run()
 
