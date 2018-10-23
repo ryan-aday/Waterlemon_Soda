@@ -19,11 +19,6 @@ def createTable():
     command = "CREATE TABLE stories (id INTEGER, story_name TEXT)"
     c.execute(command)
 
-    command = "CREATE TABLE placeholder (entry INTEGER, content TEXT, users TEXT, timestamp TEXT)"
-    c.execute(command)
-
-    c.execute("INSERT INTO stories VALUES(?,?)", (0, "placeholder"))
-    c.execute("INSERT INTO placeholder VALUES(?,?,?)", (0, "hi", "admin", "1:00"))
     db.commit() #save changes
     db.close()  #close database
 #==========================================================
@@ -42,10 +37,10 @@ def auth_user(username, password):
     # user_info = c.execute("SELECT users.username, users.password FROM users WHERE username={} AND password={}".format(username, password))
     for entry in c.execute("SELECT users.username, users.password FROM users"):
         if(entry[0] == username and entry[1] == password):
+            db.close()
             return True
+    db.close()            
     return False
-
-    db.close()
 
 def check_user(username):
     db = sqlite3.connect(DB_FILE)
@@ -53,18 +48,45 @@ def check_user(username):
 
     for entry in c.execute("SELECT users.username FROM users"):
         if(entry[0] == username):
+            db.close()    
             return True
+    db.close()            
     return False
 
-    db.close()
+def add_story(story_name, content, user):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    id = 0 
+    idList = c.execute("SELECT id FROM stories").fetchall()
+    if not idList:
+        c.execute("INSERT INTO stories VALUES(?,?)", (0, story_name))       
+    else:
+        id = len(idList)
+        c.execute("INSERT INTO stories VALUES(?,?)", (id, story_name))
+    c.execute("CREATE TABLE s{} (entry INTEGER, content TEXT, users TEXT, timestamp TEXT)".format(str(id)))
+    c.execute("INSERT INTO s{} Values(?,?,?,?)".format(str(id)), (0, content, user, "1:00"))
+    db.commit() #save changes
+    db.close()  #close database
 
-def get_stories():
+def get_stories(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    list = []
-    for entry in c.execute("SELECT story_name FROM STORIES"):
-        #for user in c.execute("SELECT user FROM entry")
-        list.append(entry)
-    return list
-    db.close()
+    retDict = {}
+    storyList = c.execute("SELECT id FROM stories").fetchall()
+    for id in storyList:
+        userList = c.execute("SELECT users FROM s" + str(id[0])).fetchall()
+        for users in userList:
+            if username in users:
+                retDict[id[0]] = True
+            else:
+                retDict[id[0]] = False
+    db.close()        
+    return retDict
+
+# createTable()
+# add_story("0","foist","admin")
+# add_story("1","secondo","admin")
+# add_story("2","thirst","admin")
+# print(get_stories("admin"))
+# print(get_stories("stuff"))

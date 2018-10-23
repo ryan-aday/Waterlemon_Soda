@@ -13,7 +13,7 @@ app.secret_key = os.urandom(32)
 def login():
     if "logged_in" in session:
         return redirect(url_for("home"))
-    return render_template("login.html");
+    return render_template("login.html")
 
 @app.route("/register")
 def register():
@@ -45,7 +45,7 @@ def authenticate():
 
 @app.route("/home")
 def home():
-    return render_template("home.html", user=session["logged_in"], stories = story.get_stories())
+    return render_template("home.html", user=session["logged_in"], stories = story.get_stories(session["logged_in"]))
 
 @app.route("/add")
 def new_story():

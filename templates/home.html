@@ -26,8 +26,8 @@
 
         {% for story in stories %}
             <tr>
-                <td>{{story[0]}}</td>
-                {% if story[1] %}
+                <td>{{story}}</td>
+                {% if stories[story] %}
                 <form action="/view">
                     <input type="submit" value="View Story">
                 </form>
