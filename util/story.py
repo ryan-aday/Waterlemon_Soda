@@ -7,10 +7,9 @@ DB_FILE="story.db"
 
 #========================================================
 
-
-
 #build SQL stmt, save as string
 def createTable():
+    ''' creates the two main data tables for users and list of stories '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     command = "CREATE TABLE users (username TEXT, password TEXT)"
@@ -21,9 +20,11 @@ def createTable():
 
     db.commit() #save changes
     db.close()  #close database
+
 #==========================================================
 
 def add_user(username, password):
+    ''' insert credentials for newly registered user into database '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("INSERT INTO users VALUES(?, ?)", (username, password))
@@ -31,6 +32,7 @@ def add_user(username, password):
     db.close()  #close database
 
 def auth_user(username, password):
+    ''' authenticate a user attempting to log in '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
@@ -43,6 +45,7 @@ def auth_user(username, password):
     return False
 
 def check_user(username):
+    ''' check if a username has already been taken when registering '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
@@ -53,7 +56,10 @@ def check_user(username):
     db.close()
     return False
 
+#==========================================================
+
 def add_story(story_name, content, user):
+    ''' add new story into main story database and create a new table for the story '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     id = 0
@@ -69,6 +75,7 @@ def add_story(story_name, content, user):
     db.close()  #close database
 
 def get_stories(username):
+    ''' retrieve the list of stories that users see on their homepage '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
@@ -84,6 +91,21 @@ def get_stories(username):
                 retDict[id[1]] = False
     db.close()
     return retDict
+
+def get_last_entry(story_id):
+    ''' retrieve last entry of a story that a user is contributing to '''
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    info = []
+    c.execute("SELECT story_name FROM stories WHERE id = " + story_id)
+    info.append(c.fetchone()[0])
+    c.execute("SELECT MAX(entry) FROM s{}".format(story_id))
+    last = c.fetchone()[0]
+    c.execute("SELECT content FROM s{} WHERE entry = {}".format(story_id, last))
+    info.append(c.fetchone()[0])
+    return info
+
 
 def test():
     createTable()

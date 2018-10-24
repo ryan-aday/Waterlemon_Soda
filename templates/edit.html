@@ -3,15 +3,15 @@
 {% block title %} New entry {% endblock %}
 
 {% block content %}
-<h3> story_title </h3>
+<h3> {{story_title}} </h3>
 
-<p> last_entry </p>
+<p> {{last_entry}} </p>
 
 New Entry:
 <br>
 <form action="/editstory">
   <input type="text" name="new_entry">
-  <input type="submit" name="story_title" value="post">
+  <button type="submit" name="story_id" value={{sid}}>post</button>
 </form>
 
 {% endblock %}

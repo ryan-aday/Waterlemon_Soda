@@ -30,13 +30,13 @@
                 {% if stories[story] %}
                 <td>
                 <form action="/view">
-                    <button type="submit" name="Story Id" value="0">View Story</button>
+                    <button type="submit" name="sid" value="0">View Story</button>
                 </form>
                 </td>
                 {% else %}
                 <td>
                 <form action="/edit">
-                    <input type="submit" value="Add to Story">
+                    <button type="submit" name="sid" value="0">Add to story</button>
                 </form>
                 </td>
                 {% endif %}

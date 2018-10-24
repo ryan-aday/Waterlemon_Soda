@@ -57,7 +57,8 @@ def view_story():
 
 @app.route("/edit")
 def edit_story():
-    return render_template("edit.html")
+    info = story.get_last_entry(request.args["sid"])
+    return render_template("edit.html", story_title = info[0], last_entry= info[1])
 
 @app.route("/logout")
 def logout():
