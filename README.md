@@ -1,3 +1,5 @@
+## Team Waterlemon_Soda
+### Joyce Liao, Kendrick Liang, Kenny Li, Johnson Li
 ## Launch Instructions:
 1. Go to [root repository](https://github.com/joyceliaoo/Waterlemon_Soda) and click "Clone or Download" button
 2. Copy the ssh/https link and run `$ git clone <link>`
@@ -9,5 +11,3 @@
 5. Install Flask and wheel with `$ pip install flask` and `$ pip install wheel` (this is a Flask application)
 6. Run `$ python app.py`
 7. Launch the root route (http://127.0.0.1:5000/) in your browser to go to the login page.
-
-Team Waterlemon_Soda (Joyce Liao, Kendrick Liang, Kenny Li, Johnson Li)
