@@ -104,8 +104,20 @@ def get_last_entry(story_id):
     last = c.fetchone()[0]
     c.execute("SELECT content FROM s{} WHERE entry = {}".format(story_id, last))
     info.append(c.fetchone()[0])
+
+    db.close()
     return info
 
+def add_new_entry(story_id, new_entry, user):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    new_id = c.execute("SELECT MAX(entry) FROM s{}".format(story_id)).fetchone()[0] + 1
+
+    c.execute("INSERT INTO s{} VALUES(?,?,?,?)".format(story_id),(str(new_id), new_entry, user, "1:00"))
+
+    db.commit()
+    db.close()
 
 def test():
     createTable()
