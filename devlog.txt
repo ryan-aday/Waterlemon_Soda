@@ -111,3 +111,9 @@ Added add_story() function, get_stories() function. Fixed jinja syntax for homep
 Homepage now shows all stories with button to view/add to it.
 ==============================================================
 
+kennyL -- 2018-10-22 23:30
+--------------------------------------------------------------
+resolved issue with team name and roster in launch instructions
+dummy version of "view story" button that could pass story id on homepage
+==============================================================
+
