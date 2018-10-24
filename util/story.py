@@ -79,18 +79,21 @@ def get_stories(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    retDict = dict()
+    retList = list()
     storyList = c.execute("SELECT id, story_name FROM stories").fetchall()
-    print (storyList)
-    for id in storyList:
-        userList = c.execute("SELECT users FROM s" + str(id[0])).fetchall()
+    for story in storyList:
+        listIdStories = list(story)
+        userList = c.execute("SELECT users FROM s" + str(listIdStories[0])).fetchall()
+        listUser = list()
         for users in userList:
-            if username in users:
-                retDict[id[1]] = True
-            else:
-                retDict[id[1]] = False
+            listUser.append(users[0])
+        if username in listUser:
+            listIdStories.append(True)
+        else:
+            listIdStories.append(False)
+        retList.append(listIdStories)
     db.close()
-    return retDict
+    return retList
 
 def get_last_entry(story_id):
     ''' retrieve last entry of a story that a user is contributing to '''
@@ -120,10 +123,12 @@ def add_new_entry(story_id, new_entry, user):
     db.close()
 
 def test():
-    createTable()
-    add_story("story_name1","foist","admin")
-    add_story("story_name2","secondo","admin")
-    add_story("story_name3","thirst","admin")
-    add_user("admin","password")
+    # createTable()
+    # add_story("story_name1","foist","admin")
+    # add_story("story_name2","secondo","admin")
+    # add_story("story_name3","thirst","admin")
+    # add_user("admin","password")
     print(get_stories("admin"))
-    print(get_stories("stuff"))
+    print(get_stories("hi"))
+
+test()
