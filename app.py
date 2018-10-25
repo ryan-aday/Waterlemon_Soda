@@ -71,6 +71,7 @@ def edit_story():
 
 @app.route("/editstory")
 def new_entry():
+    flash("Entry has been added! You can now view the story.")
     story.add_new_entry(request.args["sid"], request.args["new_entry"], session["logged_in"])
     return redirect(url_for("home"))
 

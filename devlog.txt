@@ -132,3 +132,10 @@ joyceL -- 2018-10-23 23:55
 added get_last_entry() and add_new_entry()
 users can now contribute to a story
 ==============================================================
+
+joyceL -- 2018-10-24 23:21
+--------------------------------------------------------------
+all stories on home page are sorted alphabetically with author's name
+added view functionality, users can view all entries of stories they have contributed to
+added flash messages on home page after a user has added a new story/ contributed to a story
+==============================================================
