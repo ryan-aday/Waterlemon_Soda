@@ -91,7 +91,33 @@ def get_stories(username):
                 break
         retList.append(listIdStories)
     db.close()
+    retList.sort(key=lambda x: x[1]) #sort alphabetically
     return retList
+
+def get_story_name(story_id):
+    ''' get title for specific story '''
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    title = c.execute("SELECT story_name FROM stories WHERE id = (?)", (str(story_id))).fetchone()
+
+    db.close()
+    return title[0]
+
+def get_story_entries(story_id):
+    ''' get all entries for particular story '''
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    result = list()
+
+    command = "SELECT entry, content, users FROM s{}".format(str(story_id))
+    entries = c.execute(command).fetchall()
+    for entry in entries:
+        result.append(list(entry))
+
+    return result
+
 
 def get_last_entry(story_id):
     ''' retrieve last entry of a story that a user is contributing to '''
@@ -126,7 +152,10 @@ def test():
     # add_story("story_name2","secondo","admin")
     # add_story("story_name3","thirst","admin")
     # add_user("admin","password")
-    print(get_stories("admin"))
-    print(get_stories("hi"))
+    #print(get_stories("admin"))
+    #print(get_stories("hi"))
+    print(get_story_name(1))
+    print(get_story_entries(2))
+
 
 test()

@@ -51,9 +51,17 @@ def home():
 def new_story():
     return render_template("add.html")
 
+@app.route("/newstory")
+def newstory():
+    flash("story has been added!")
+    story.add_story(request.args["story_title"], request.args["story_content"], session["logged_in"])
+    return redirect(url_for("home"))
+
 @app.route("/view")
 def view_story():
-    return render_template("view.html")
+    title = story.get_story_name(request.args["sid"])
+    entries = story.get_story_entries(request.args["sid"])
+    return render_template("view.html", story_title = title, author = entries[0][2], list = entries)
 
 @app.route("/edit")
 def edit_story():
@@ -70,11 +78,6 @@ def new_entry():
 def logout():
     session.pop("logged_in")
     return redirect(url_for("login"))
-
-@app.route("/newstory")
-def newstory():
-    story.add_story(request.args["story_title"], request.args["story_content"], session["logged_in"])
-    return redirect(url_for("home"))
 
 app.debug = True
 app.run()
