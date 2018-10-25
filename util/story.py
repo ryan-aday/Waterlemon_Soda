@@ -84,13 +84,11 @@ def get_stories(username):
     for story in storyList:
         listIdStories = list(story)
         userList = c.execute("SELECT users FROM s" + str(listIdStories[0])).fetchall()
-        listUser = list()
+        listIdStories.append(False)
         for users in userList:
-            listUser.append(users[0])
-        if username in listUser:
-            listIdStories.append(True)
-        else:
-            listIdStories.append(False)
+            if users[0] == username:
+                listIdStories[2] = True
+                break
         retList.append(listIdStories)
     db.close()
     return retList
