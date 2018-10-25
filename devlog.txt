@@ -81,7 +81,7 @@ created util directory, and added add_user function in app.py and story.py
 
 johnsonL -- 2018-10-21 17:13
 --------------------------------------------------------------
-made logout work for all users, not just admin 
+made logout work for all users, not just admin
 made register check confirm password
 ==============================================================
 
@@ -138,4 +138,16 @@ joyceL -- 2018-10-24 23:21
 all stories on home page are sorted alphabetically with author's name
 added view functionality, users can view all entries of stories they have contributed to
 added flash messages on home page after a user has added a new story/ contributed to a story
+==============================================================
+
+johnsonL -- 2018-10-25 14:00
+--------------------------------------------------------------
+made code more robust.
+blanks cannot be submitted; all fields have to be filled in.
+added flashing messages for some adding stories and new entries.
+
+bugs to fix:
+-manually entering the link, or changing the sid to a story lets you edit a story twice.
+to do:
+-change to post.
 ==============================================================
