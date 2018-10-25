@@ -3,11 +3,21 @@
 {% block title %} new story {% endblock %}
 
 {% block content %}
+
+{% set msgs = get_flashed_messages() %}
+{% for each in msgs %}
+  {{each}}
+
+{% endfor %}
+
 <form action="/newstory">
 Title: <input type="text" name="story_title">
 <br>
 Content: <input type="text" name="story_content">
 <br>
-<input type="submit" value="post"> <a href="/home">cancel</a>
-{% endblock %}
 
+<input type="submit" value="post">
+<br>
+<a href="/home">back to home</a>
+
+{% endblock %}

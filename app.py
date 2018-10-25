@@ -21,6 +21,10 @@ def register():
 
 @app.route("/adduser")
 def add_user():
+    if(not request.args["user"].strip() or not request.args["password"] or not request.args["confirm_password"]):
+        flash("Please fill in all fields")
+        return redirect(url_for("register"))
+
     if(story.check_user(request.args["user"])):
         flash("User already exists")
         return redirect(url_for("register"))
@@ -53,6 +57,9 @@ def new_story():
 
 @app.route("/newstory")
 def newstory():
+    if(not request.args["story_title"].strip() or not request.args["story_content"].strip()):
+        flash("please fill in all fields")
+        return redirect(url_for("new_story"))
     flash("story has been added!")
     story.add_story(request.args["story_title"], request.args["story_content"], session["logged_in"])
     return redirect(url_for("home"))
@@ -71,6 +78,9 @@ def edit_story():
 
 @app.route("/editstory")
 def new_entry():
+    if(not request.args["new_entry"].strip()):
+        flash("Please fill in an entry")
+        return redirect(url_for("edit_story", sid=request.args["sid"]))
     flash("Entry has been added! You can now view the story.")
     story.add_new_entry(request.args["sid"], request.args["new_entry"], session["logged_in"])
     return redirect(url_for("home"))

@@ -148,15 +148,15 @@ def add_new_entry(story_id, new_entry, user):
     db.close()
 
 # def test():
-    # createTable()
-    # add_story("story_name1","foist","admin")
-    # add_story("story_name2","secondo","admin")
-    # add_story("story_name3","thirst","admin")
-    # add_user("admin","password")
-    #print(get_stories("admin"))
-    #print(get_stories("hi"))
-    # print(get_story_name(1))
-    # print(get_story_entries(2))
-
-
+#     createTable()
+#     add_story("story_name1","foist","admin")
+#     add_story("story_name2","secondo","admin")
+#     add_story("story_name3","thirst","admin")
+#     add_user("admin","password")
+#     print(get_stories("admin"))
+#     print(get_stories("hi"))
+#     print(get_story_name(1))
+#     print(get_story_entries(2))
+#
+#
 # test()

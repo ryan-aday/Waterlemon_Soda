@@ -3,9 +3,18 @@
 {% block title %} New entry {% endblock %}
 
 {% block content %}
-<h3> {{story_title}} </h3>
+
+
+<h1> {{story_title}} </h1>
 
 <p> Last Entry: {{last_entry}} </p>
+
+{% set msgs = get_flashed_messages() %}
+{% for each in msgs %}
+  {{each}}
+
+{% endfor %}
+<br>
 
 New Entry:
 <br>
@@ -13,5 +22,9 @@ New Entry:
   <input type="text" name="new_entry">
   <button type="submit" name="sid" value={{sid}}>post</button>
 </form>
+
+<br>
+<a href='/home'>back to home</a>
+
 
 {% endblock %}
