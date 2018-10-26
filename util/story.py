@@ -100,7 +100,7 @@ def get_story_name(story_id):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    title = c.execute("SELECT story_name FROM stories WHERE id = (?)", (str(story_id))).fetchone()
+    title = c.execute("SELECT story_name FROM stories WHERE id =" + (str(story_id))).fetchone()
 
     db.close()
     return title[0]
