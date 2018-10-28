@@ -8,22 +8,24 @@
 <br>
 <br>
 
-<table><!--Organizes info about edits made into categories-->
+<table border="1"><!--Organizes info about edits made into categories-->
     <tr>
-        <th> Entry Number</th>
-        <th> Content </th>
         <th> Added by </th>
+        <th> Content </th>
     </tr>
 {% for entry in list %}<!--Takes info about edits from database-->
 
     <tr>
-    	<td> {{entry[0]}} </td>
+        <td> {{entry[2]}} </td>
     	<td> {{entry[1]}} </td>
-    	<td> {{entry[2]}} </td>
     </tr>
 
 {% endfor %}
 </table>
+
+<br>
+<br>
+<br>
 <a href='/home'>back to home</a>
 
 

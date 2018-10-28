@@ -147,7 +147,7 @@ def add_new_entry(story_id, new_entry, user):
     db.commit()
     db.close()
 
-createTable()
+# createTable()
 # def test():
 #     createTable()
 #     add_story("story_name1","foist","admin")
