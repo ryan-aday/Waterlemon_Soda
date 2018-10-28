@@ -5,11 +5,11 @@
 {% block content %}
 
 
-<h1> {{story_title}} </h1>
+<h1> {{story_title}} </h1><!-- Shows title -->
 
-<p> Last Entry: {{last_entry}} </p>
+<p> Last Entry: {{last_entry}} </p><!-- Shows last entry only -->
 
-{% set msgs = get_flashed_messages() %}
+{% set msgs = get_flashed_messages() %}<!--If input criteria aren't fullfilled, flashes error messages -->
 {% for each in msgs %}
   {{each}}
 
@@ -18,7 +18,7 @@
 
 New Entry:
 <br>
-<form action="/editstory" method="POST">
+<form action="/editstory" method="POST"><!--POST to hide sid from url. Once filled text added, returns to home -->
   <input type="text" name="new_entry">
   <button type="submit" name="sid" value={{sid}}>post</button>
 </form>

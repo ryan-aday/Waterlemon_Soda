@@ -4,11 +4,11 @@
 
 {% block content %}
     Hi, logged in as {{user}}
-    <form action="/logout" method="POST">
+    <form action="/logout" method="POST"><!--Provides option to log out-->
         <input type="submit" value="Logout">
     </form>
 
-    <br>
+    <br><!--If input criteria aren't fullfilled, flashes error messages -->
     {% set msgs = get_flashed_messages() %}
     {% for each in msgs %}
       <b>{{each}}</b>
@@ -18,19 +18,19 @@
     <br>
     <br>
 
-    <form action="/add" method="POST">
+    <form action="/add" method="POST"><!--Provides option to make new story -->
         <input type="submit" value="Add new story">
     </form>
     <br>
 
-    <table border = "1">
+    <table border = "1"><!--Organizes all stories made on website-->
         <tr>
             <th> Story Title </th>
             <th> Author </th>
             <th> Action </th>
         </tr>
 
-        {% for story in stories %}
+        {% for story in stories %}<!--For every story, checks if user already edited once. If so, changes edit button to view -->
             <tr>
                 <td>{{story[1]}}</td>
                 <td>{{story[3]}}</td>

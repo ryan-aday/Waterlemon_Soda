@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--Basic template for all other pages -->
 <html>
-<head>
+<head><!--Replaceable title/heading -->
     {% block head %}
     <title> {% block title %} Title {% endblock %}  </title>
     {% endblock %}
 </head>
-<body>
+<body><!--Replaceable body -->
 
     {% block content %}
     content
     {% endblock %}
 
-    {% block footer %}
+    {% block footer %}<!--Copyright stuff -->
     <br>
     <br>
     <br>

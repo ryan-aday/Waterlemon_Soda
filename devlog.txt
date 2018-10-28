@@ -163,3 +163,9 @@ added comments to story.py
 changed methods from get to post
 removed timestamp column
 ==============================================================
+
+kendrickL -- 2018-10-28 00:33
+--------------------------------------------------------------
+added comments to html files
+replaced old db file with new one w/o timestamp
+==============================================================

@@ -1,21 +1,20 @@
 {% extends "shell.html" %}
 
-{% block title %} {{story_title}} {% endblock %}
+{% block title %} {{story_title}} {% endblock %}<!--replaced by story_title input from add.html -->
 
 {% block content %}
 
-<h2> {{story_title}} </h2> <i>created by {{author}}</i>
+<h2> {{story_title}} </h2> <i>created by {{author}}</i><!-- author is the user who first created story -->
 <br>
 <br>
 
-<table>
+<table><!--Organizes info about edits made into categories-->
     <tr>
         <th> Entry Number</th>
         <th> Content </th>
         <th> Added by </th>
-        <th> Timestamp </th>
     </tr>
-{% for entry in list %}
+{% for entry in list %}<!--Takes info about edits from database-->
 
     <tr>
     	<td> {{entry[0]}} </td>
