@@ -69,8 +69,8 @@ def add_story(story_name, content, user):
     else:
         id = len(idList)
         c.execute("INSERT INTO stories VALUES(?,?)", (id, story_name))
-    c.execute("CREATE TABLE s{} (entry INTEGER, content TEXT, users TEXT, timestamp TEXT)".format(str(id)))
-    c.execute("INSERT INTO s{} Values(?,?,?,?)".format(str(id)), (0, content, user, "1:00"))
+    c.execute("CREATE TABLE s{} (entry INTEGER, content TEXT, users TEXT)".format(str(id)))
+    c.execute("INSERT INTO s{} Values(?,?,?)".format(str(id)), (0, content, user))
     db.commit() #save changes
     db.close()  #close database
 
@@ -142,7 +142,7 @@ def add_new_entry(story_id, new_entry, user):
 
     new_id = c.execute("SELECT MAX(entry) FROM s{}".format(story_id)).fetchone()[0] + 1
 
-    c.execute("INSERT INTO s{} VALUES(?,?,?,?)".format(story_id),(str(new_id), new_entry, user, "1:00"))
+    c.execute("INSERT INTO s{} VALUES(?,?,?)".format(story_id),(str(new_id), new_entry, user))
 
     db.commit()
     db.close()
@@ -157,6 +157,4 @@ def add_new_entry(story_id, new_entry, user):
 #     print(get_stories("hi"))
 #     print(get_story_name(1))
 #     print(get_story_entries(2))
-#
-#
 # test()

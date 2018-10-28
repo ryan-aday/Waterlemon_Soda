@@ -1,11 +1,9 @@
 {% extends "shell.html" %}
 
-{% block head %}
-<title> Home </title>
-{% endblock %}
+{% block title %} Home {% endblock %}
 
 {% block content %}
-    HI, logged in as {{user}}
+    Hi, logged in as {{user}}
     <form action="/logout" method="POST">
         <input type="submit" value="Logout">
     </form>
@@ -20,7 +18,7 @@
     <br>
     <br>
 
-    <form action="/add">
+    <form action="/add" method="POST">
         <input type="submit" value="Add new story">
     </form>
     <br>
@@ -38,11 +36,11 @@
                 <td>{{story[3]}}</td>
                 <td>
                 {% if story[2] %}
-                <form action="/view">
+                <form action="/view" method="POST">
                     <button type="submit" name="sid" value={{story[0]}}>View Story</button>
                 </form>
                 {% else %}
-                <form action="/edit">
+                <form action="/edit" method="POST">
                     <button type="submit" name="sid" value={{story[0]}}>Add to story</button>
                 </form>
                 </td>
@@ -50,14 +48,6 @@
             </tr>
         {% endfor %}
     </table>
-
-    <!-- <form action="/view">
-        <input type="submit" value="View story">
-    </form>
-    <br>
-    <form action="/edit">
-        <input type="submit" value="Edit story">
-    </form> -->
     <br>
 
 {% endblock %}

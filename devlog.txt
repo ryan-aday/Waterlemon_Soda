@@ -156,3 +156,10 @@ kendrickL -- 2018-10-25 14:00
 --------------------------------------------------------------
 helped find some bugs to fix and recorded them on a to-do list
 ==============================================================
+
+kennyL -- 2018-10-28 00:00
+--------------------------------------------------------------
+added comments to story.py
+changed methods from get to post
+removed timestamp column
+==============================================================
