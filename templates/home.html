@@ -3,7 +3,7 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-    Hi, logged in as {{user}}
+    Hi, logged in as <b>{{user}}</b>
     <form action="/logout" method="POST"><!--Provides option to log out-->
         <input type="submit" value="Logout">
     </form>
@@ -19,7 +19,7 @@
     <br>
 
     <form action="/add" method="POST"><!--Provides option to make new story -->
-        <input type="submit" value="Add new story">
+        <input type="submit" value="Add a new story">
     </form>
     <br>
 

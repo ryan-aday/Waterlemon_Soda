@@ -4,6 +4,8 @@
 
 {% block content %}
 
+<h2> Add a New Story </h2>
+
 {% set msgs = get_flashed_messages() %}<!--If input criteria aren't fullfilled, flashes error messages -->
 {% for each in msgs %}
   {{each}}
@@ -13,10 +15,13 @@
 <form action="/newstory" method="POST"><!--POST to hide info from url. Once filled Title and Content are added, returns to home -->
 Title: <input type="text" name="story_title">
 <br>
+<br>
 Content: <input type="text" name="story_content">
+<br>
 <br>
 
 <input type="submit" value="post">
+<br>
 <br>
 <a href="/home">back to home</a>
 

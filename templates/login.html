@@ -2,8 +2,10 @@
 
 {% block title %} Login {% endblock %}
 
-{% block content %}<!--Flashes errors if user/pass are wrong or blank -->
+{% block content %}
 
+    <h2> Welcome </h2>
+    <!--Flashes errors if user/pass are wrong or blank -->
     {% set msgs = get_flashed_messages() %}
     {% for each in msgs %}
       {{each}}
@@ -14,11 +16,12 @@
 
       Username:  <input type="text" name="user">
       <br>
+      <br>
       Password:  <input type="password" name="password">
+      <br>
       <br>
       <input type="submit" value="Login">
       <br>
       <br>
-      No account? Register <a href="/register">here</a>
-
+      No account? Register <a href="/register">here</a></form>
 {% endblock %}
