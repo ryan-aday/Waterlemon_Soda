@@ -125,6 +125,9 @@ dummy version of "view story" button that could pass story id on homepage
 joyceL -- 2018-10-23 23:10
 --------------------------------------------------------------
 released v2 design doc
+	1. more detailed explanation of view/edit button on homepage
+	2. Removed timestamp column from database schema
+	3. tables for each story is named by story_id instead of story_name
 ==============================================================
 
 joyceL -- 2018-10-23 23:55
@@ -175,7 +178,8 @@ johnsonL -- 2018-10-28 18:17
 changed how view story looks
 ==============================================================
 
-joyceL -- 2018-10-28 19:02
+joyceL -- 2018-10-28 21:30
 --------------------------------------------------------------
 Added header messages to login, register, add/edit/view story templates
+added design doc v3: modified site map to reflect the structure of current site
 ==============================================================
