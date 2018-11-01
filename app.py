@@ -78,7 +78,7 @@ def new_story():
 def newstory():
     if(not request.form["story_title"].strip() or not request.form["story_content"].strip()):
         flash("please fill in all fields")
-        return redirect(url_for("new_story"))
+        return redirect(url_for("new_story"), code=307)
     flash("story has been added!")
     story.add_story(request.form["story_title"], request.form["story_content"], session["logged_in"])
     return redirect(url_for("home"))
@@ -97,7 +97,7 @@ def edit_story():
 def new_entry():
     if(not request.form["new_entry"].strip()):
         flash("Please fill in an entry")
-        return redirect(url_for("edit_story", sid=request.form["sid"]))
+        return redirect(url_for("edit_story", sid=request.form["sid"]), code=307)
     flash("Entry has been added! You can now view the story.")
     story.add_new_entry(request.form["sid"], request.form["new_entry"], session["logged_in"])
     return redirect(url_for("home"))
