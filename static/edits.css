@@ -1,0 +1,35 @@
+/* edits.css */
+body{
+	background-color: #FFDF00;
+	background-image:
+}
+
+h2{
+	color: #FF69B4;
+	text-align: center;
+}
+
+input[type=text] {
+	width: 100%;
+    	padding: 12px 20px;
+    	margin: 8px 0;
+    	box-sizing: border-box;
+    	border: 5px solid green;
+}
+
+input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 5px solid green;
+}
+
+table {
+	border-collapse: collapse;
+    	width: 100%;
+}
+
+td, tr{
+	text-align:center;
+}	
